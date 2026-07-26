@@ -62,6 +62,6 @@ Full details: https://docs.github.com/pages/configuring-a-custom-domain-for-your
   `https://apps.apple.com/app/id6759014413` — this 404s until the app is
   approved and released. Fine to leave in now; it'll start working the moment
   the app goes live.
-- Contact email throughout is `kiaointhavonh@gmail.com` (your existing
+- Contact email throughout is `kinthstudio@icloud.com` (your existing
   address) — swap in a dedicated `support@kinthstudio.com` alias later if you
   set one up once you own the domain.
