@@ -1,41 +1,40 @@
-# Kinth Studio — Court Tracker site
+# Kinth Studio site
 
-Marketing + support site for Court Tracker, ready to publish via GitHub Pages
-under a new `kinthstudio` GitHub account.
+Studio hub + per-app marketing/support sites, published via GitHub Pages
+under the `kinthstudio` GitHub account. **Live now at https://kinthstudio.github.io**
 
-## What's here
+## Structure
 
-- `index.html` — marketing landing page (feature highlights, screenshots, App Store link)
-- `support.html` — support page with contact email + FAQ
-- `privacy.html` — privacy policy (rebranded from the original, same content/guarantees)
-- `assets/` — app icon + screenshots used on the pages
+- `index.html` — studio hub: logo, one-liner, and a card per app (currently just Court Tracker)
+- `assets/` — studio-level assets (K logo icons) + a copy of the Court Tracker icon for the hub card
+- `courttracker/` — Court Tracker's own site, self-contained:
+  - `index.html` — marketing landing page (feature highlights, screenshots, App Store link)
+  - `support.html` — support page with contact email + FAQ
+  - `privacy.html` — privacy policy
+  - `assets/` — Court Tracker's icon + screenshots
+
+**Adding a new app later**: create a new top-level folder (e.g. `coolapp2/`) with
+its own `index.html`/`support.html`/`privacy.html`/`assets/`, mirroring
+`courttracker/`, then add a new `.app-card` link to it in the root `index.html`.
+No new GitHub repo or domain needed — everything lives under the same
+`kinthstudio.github.io` site as subpaths.
 
 All pages are self-contained static HTML/CSS — no build step, no dependencies.
 
-## Publish it (once you've created the `kinthstudio` GitHub account)
+## Publishing changes
 
-GitHub Pages will serve this automatically, at the root domain, if the repo is
-named **exactly** `kinthstudio.github.io` under that account.
-
-1. Go to https://github.com/new (while signed in as `kinthstudio`)
-2. Repository name: `kinthstudio.github.io` (must match exactly)
-3. Set it to **Public**
-4. Do **NOT** initialize with a README (this folder already has one)
-5. Click "Create repository"
-6. Run the push script:
-   ```bash
-   cd KinthStudio-GitHub
-   ./push-to-kinthstudio.sh
-   ```
-
-Your site will be live within a minute or two at:
-**https://kinthstudio.github.io**
+```bash
+cd KinthStudio-GitHub
+git add -A && git commit -m "..." && git push
+```
+(The repo + GitHub Pages are already set up — this just pushes updates. See
+`push-to-kinthstudio.sh` if you ever need to re-point `origin` from scratch.)
 
 ## Using it for App Store Connect
 
-Once live, set in App Store Connect → App Information:
-- **Marketing URL**: `https://kinthstudio.github.io`
-- **Support URL**: `https://kinthstudio.github.io/support.html`
+In App Store Connect → App Information, for Court Tracker:
+- **Marketing URL**: `https://kinthstudio.github.io/courttracker/`
+- **Support URL**: `https://kinthstudio.github.io/courttracker/support.html`
 
 (App Store Connect fields have to be edited by you directly in the browser —
 there's no API access for that from here.)

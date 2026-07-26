@@ -30,7 +30,7 @@
     display: flex; align-items: center; justify-content: space-between;
     padding: 22px 0; border-bottom: 1px solid var(--stroke); margin-bottom: 40px;
   }
-  .studio-logo { display: flex; align-items: center; gap: 10px; }
+  .studio-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
   .studio-logo img { width: 32px; height: 32px; border-radius: 8px; }
   .studio-logo .word { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
   .studio-logo .word span { font-weight: 400; color: var(--muted); }
@@ -46,7 +46,7 @@
   strong { color: var(--ink); font-weight: 600; }
 
   footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--stroke); }
-  .footer-logo { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .footer-logo { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; text-decoration: none; color: inherit; }
   .footer-logo img { width: 22px; height: 22px; border-radius: 6px; }
   .footer-logo .word { font-size: 14px; font-weight: 600; }
   .footer-logo .word span { font-weight: 400; color: var(--muted); }
@@ -57,10 +57,10 @@
 <body>
 <div class="wrap">
   <div class="studio-bar">
-    <div class="studio-logo">
+    <a class="studio-logo" href="../index.html">
       <img src="assets/app-icon-dark.png" alt="Kinth Studio">
       <div class="word">kinth<span>studio</span></div>
-    </div>
+    </a>
     <nav><a href="index.html">Home</a></nav>
   </div>
 
@@ -101,10 +101,10 @@
   <p>If you have questions about this privacy policy, please contact us at <a href="mailto:kiaointhavonh@gmail.com">kiaointhavonh@gmail.com</a>.</p>
 
   <footer>
-    <div class="footer-logo">
+    <a class="footer-logo" href="../index.html">
       <img src="assets/app-icon-dark.png" alt="Kinth Studio">
       <div class="word">kinth<span>studio</span></div>
-    </div>
+    </a>
     <div class="footer-row">
       <a href="index.html">Home</a>
       <a href="support.html">Support</a>

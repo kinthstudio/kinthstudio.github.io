@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kinth Studio — Court Tracker</title>
+<meta name="description" content="Kinth Studio builds Court Tracker, a fast, offline basketball stat-tracking app for coaches and scorekeepers.">
+<link rel="icon" type="image/png" href="assets/app-icon-blue.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-top: #1e1e24;
+    --bg-bottom: #121218;
+    --surface: #21212a;
+    --surface-strong: #282833;
+    --stroke: rgba(255,255,255,0.08);
+    --ink: #ffffff;
+    --muted: #9d9fab;
+    --blue: #4f88e7;
+    --blue-light: #8cbbff;
+    --green: #22c55e;
+    --orange: #ff8a00;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(160deg, var(--bg-top), var(--bg-bottom));
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  a { color: var(--blue-light); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* Studio header bar */
+  .studio-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 0; border-bottom: 1px solid var(--stroke);
+  }
+  .studio-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+  .studio-logo img { width: 32px; height: 32px; border-radius: 8px; }
+  .studio-logo .word { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+  .studio-logo .word span { font-weight: 400; color: var(--muted); }
+  .studio-bar nav a { font-size: 14px; font-weight: 500; color: var(--muted); margin-left: 22px; }
+  .studio-bar nav a:hover { color: var(--ink); text-decoration: none; }
+
+  header.hero { padding: 64px 0 48px; text-align: center; }
+  .app-icon {
+    width: 108px;
+    height: 108px;
+    border-radius: 24px;
+    box-shadow: 0 14px 34px rgba(79,136,231,0.25);
+    margin-bottom: 22px;
+  }
+  h1 { font-size: 42px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.02em; }
+  .subtitle { font-size: 18px; font-weight: 300; color: var(--muted); max-width: 560px; margin: 0 auto 30px; }
+
+  .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 24px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 15px;
+    font-family: inherit;
+  }
+  .btn-primary { background: var(--blue); color: white; }
+  .btn-primary:hover { background: #3f74d0; text-decoration: none; }
+  .btn-secondary {
+    background: var(--surface-strong);
+    color: var(--ink);
+    border: 1px solid var(--stroke);
+  }
+  .btn-secondary:hover { background: #323240; text-decoration: none; }
+
+  section { padding: 40px 0; }
+  .section-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    margin-bottom: 10px;
+  }
+  h2 { font-size: 27px; font-weight: 600; margin: 0 0 28px; }
+
+  .shots {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 8px 0 44px;
+  }
+  .shots img {
+    width: 100%;
+    border-radius: 18px;
+    border: 1px solid var(--stroke);
+    display: block;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .feature-card {
+    background: var(--surface);
+    border: 1px solid var(--stroke);
+    border-radius: 18px;
+    padding: 22px;
+  }
+  .feature-card .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    margin-bottom: 12px;
+  }
+  .feature-card h3 { font-size: 16px; font-weight: 600; margin: 0 0 8px; }
+  .feature-card p { font-size: 14px; font-weight: 300; color: var(--muted); margin: 0; }
+
+  .new-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    color: #121218;
+    background: var(--orange);
+    border-radius: 6px;
+    padding: 2px 7px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .pricing-card {
+    background: var(--surface);
+    border: 1px solid var(--stroke);
+    border-radius: 20px;
+    padding: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .pricing-card .price-block h3 { margin: 0 0 6px; font-size: 19px; font-weight: 600; }
+  .pricing-card .price-block p { margin: 0; color: var(--muted); font-size: 14px; font-weight: 300; max-width: 420px; }
+  .price-tag { font-size: 28px; font-weight: 700; color: var(--green); white-space: nowrap; }
+
+  footer {
+    border-top: 1px solid var(--stroke);
+    margin-top: 40px;
+    padding: 32px 0 56px;
+  }
+  .footer-logo { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; text-decoration: none; color: inherit; }
+  .footer-logo img { width: 22px; height: 22px; border-radius: 6px; }
+  .footer-logo .word { font-size: 14px; font-weight: 600; }
+  .footer-logo .word span { font-weight: 400; color: var(--muted); }
+  .footer-row {
+    color: var(--muted);
+    font-size: 13px; font-weight: 300;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); }
+  footer nav a { margin-left: 18px; }
+  footer nav a:first-child { margin-left: 0; }
+
+  @media (max-width: 640px) {
+    header.hero { padding: 48px 0 36px; }
+    h1 { font-size: 32px; }
+    .shots, .feature-grid { grid-template-columns: 1fr; }
+    .footer-row { flex-direction: column; }
+    footer nav a { margin-left: 0; margin-right: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="studio-bar">
+    <a class="studio-logo" href="../index.html">
+      <img src="assets/app-icon-dark.png" alt="Kinth Studio">
+      <div class="word">kinth<span>studio</span></div>
+    </a>
+    <nav>
+      <a href="support.html">Support</a>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <img class="app-icon" src="assets/courttracker-icon.png" alt="Court Tracker app icon">
+    <h1>Court Tracker</h1>
+    <p class="subtitle">Confident basketball game tracking for coaches, scorekeepers, and stat-obsessed parents — fast enough to keep up with the game, offline by design.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://apps.apple.com/app/id6759014413">Download on the App Store</a>
+      <a class="btn btn-secondary" href="support.html">Support</a>
+    </div>
+  </header>
+
+  <section>
+    <div class="shots">
+      <img src="assets/screenshot-home.png" alt="Court Tracker home screen">
+      <img src="assets/screenshot-timeline.png" alt="Court Tracker live game timeline with on/off court and +/- line">
+    </div>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">What it does</div>
+    <h2>Everything a sideline coach needs, nothing they don't</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="dot" style="background: var(--green);"></div>
+        <h3>Real-time stat tracking</h3>
+        <p>Points, rebounds, assists, steals, blocks, turnovers, and fouls with a single tap. Field goals, threes, and free throws tracked separately for accurate shooting splits.</p>
+      </div>
+      <div class="feature-card">
+        <div class="dot" style="background: var(--blue);"></div>
+        <h3>Live game timeline<span class="new-badge">NEW</span></h3>
+        <p>See exactly when each player was on the court and when they scored, laid out against a running team +/- line — so you can read momentum against the lineup that produced it.</p>
+      </div>
+      <div class="feature-card">
+        <div class="dot" style="background: var(--orange);"></div>
+        <h3>Substitutions &amp; rotation fairness</h3>
+        <p>Swap players with a purpose-built substitution screen. A rotation timer helps keep playing time fair, with an optional auto-pause during subs.</p>
+      </div>
+      <div class="feature-card">
+        <div class="dot" style="background: var(--blue-light);"></div>
+        <h3>Rosters that remember</h3>
+        <p>Unlimited teams and roster size, player photos for fast on-court identification, and full career stat history preserved even after a player retires.</p>
+      </div>
+      <div class="feature-card">
+        <div class="dot" style="background: var(--green);"></div>
+        <h3>Box scores &amp; history</h3>
+        <p>Full box scores and period-by-period breakdowns for every past game, with CSV export for deeper analysis in your spreadsheet of choice.</p>
+      </div>
+      <div class="feature-card">
+        <div class="dot" style="background: var(--blue);"></div>
+        <h3>Seasons &amp; leaderboards</h3>
+        <p>Group games into seasons, track season-specific stats, and check Top 5 leaderboards for points, rebounds, assists, steals, and minutes played.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">Pricing</div>
+    <h2>Free forever, upgrade if you want more</h2>
+    <div class="pricing-card">
+      <div class="price-block">
+        <h3>Track Court Time — free</h3>
+        <p>Court time, rotations, and substitutions tracking, always free. Upgrade once to unlock live scoring, full box scores, custom stats, and player analytics. No subscription, no ads.</p>
+      </div>
+      <div class="price-tag">$1.99</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">Privacy</div>
+    <h2>Your data never leaves the device</h2>
+    <p style="color: var(--muted); font-weight: 300; max-width: 620px;">
+      Court Tracker works completely offline — no accounts, no analytics, no ad trackers. Every roster, stat, and photo you enter is stored locally on your device.
+      Read the full <a href="privacy.html">Privacy Policy</a>.
+    </p>
+  </section>
+
+  <footer>
+    <a class="footer-logo" href="../index.html">
+      <img src="assets/app-icon-dark.png" alt="Kinth Studio">
+      <div class="word">kinth<span>studio</span></div>
+    </a>
+    <div class="footer-row">
+      <div>&copy; <span id="year"></span> Kinth Studio &middot; Indie developer</div>
+      <nav>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="mailto:kiaointhavonh@gmail.com">Contact</a>
+      </nav>
+    </div>
+  </footer>
+</div>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
