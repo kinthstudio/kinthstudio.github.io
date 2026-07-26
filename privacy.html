@@ -4,37 +4,70 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — Court Tracker | Kinth Studio</title>
+<link rel="icon" type="image/png" href="assets/app-icon-blue.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-top: #131920; --bg-bottom: #0a0d10;
-    --surface: #1c232b;
+    --bg-top: #1e1e24; --bg-bottom: #121218;
+    --surface: #21212a;
     --stroke: rgba(255,255,255,0.08);
-    --ink: #f2efe9; --muted: #b3b7bd; --bronze: #c79961;
+    --ink: #ffffff; --muted: #9d9fab; --blue: #4f88e7; --blue-light: #8cbbff;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background: linear-gradient(160deg, var(--bg-top), var(--bg-bottom));
     color: var(--ink);
     line-height: 1.65;
   }
-  a { color: var(--bronze); }
-  .wrap { max-width: 700px; margin: 0 auto; padding: 56px 24px 64px; }
-  .back { font-size: 13px; color: var(--muted); display: inline-block; margin-bottom: 24px; }
-  h1 { font-size: 30px; margin: 0 0 6px; }
-  .date { color: var(--muted); font-size: 14px; margin: 0 0 36px; }
-  h2 { font-size: 17px; margin-top: 30px; color: var(--ink); }
-  p { color: var(--muted); font-size: 15px; }
-  strong { color: var(--ink); }
-  footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--stroke); color: var(--muted); font-size: 13px; }
+  a { color: var(--blue-light); }
+  .wrap { max-width: 700px; margin: 0 auto; padding: 0 24px 64px; }
+
+  .studio-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 0; border-bottom: 1px solid var(--stroke); margin-bottom: 40px;
+  }
+  .studio-logo { display: flex; align-items: center; gap: 10px; }
+  .studio-logo img { width: 32px; height: 32px; border-radius: 8px; }
+  .studio-logo .word { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+  .studio-logo .word span { font-weight: 400; color: var(--muted); }
+  .studio-bar nav a { font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; }
+  .studio-bar nav a:hover { color: var(--ink); }
+
+  .app-heading { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+  .app-heading img { width: 44px; height: 44px; border-radius: 11px; box-shadow: 0 8px 20px rgba(79,136,231,0.25); }
+  h1 { font-size: 30px; font-weight: 700; margin: 0; }
+  .date { color: var(--muted); font-weight: 300; font-size: 14px; margin: 12px 0 36px; }
+  h2 { font-size: 17px; font-weight: 600; margin-top: 30px; color: var(--ink); }
+  p { color: var(--muted); font-weight: 300; font-size: 15px; }
+  strong { color: var(--ink); font-weight: 600; }
+
+  footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--stroke); }
+  .footer-logo { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .footer-logo img { width: 22px; height: 22px; border-radius: 6px; }
+  .footer-logo .word { font-size: 14px; font-weight: 600; }
+  .footer-logo .word span { font-weight: 400; color: var(--muted); }
+  .footer-row { color: var(--muted); font-size: 13px; font-weight: 300; }
   footer a { color: var(--muted); margin-right: 16px; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <a class="back" href="index.html">&larr; Kinth Studio</a>
-  <h1>Privacy Policy</h1>
+  <div class="studio-bar">
+    <div class="studio-logo">
+      <img src="assets/app-icon-dark.png" alt="Kinth Studio">
+      <div class="word">kinth<span>studio</span></div>
+    </div>
+    <nav><a href="index.html">Home</a></nav>
+  </div>
+
+  <div class="app-heading">
+    <img src="assets/courttracker-icon.png" alt="Court Tracker app icon">
+    <h1>Privacy Policy</h1>
+  </div>
   <p class="date">Court Tracker · Effective date: February 10, 2026</p>
 
   <h2>Overview</h2>
@@ -68,8 +101,14 @@
   <p>If you have questions about this privacy policy, please contact us at <a href="mailto:kiaointhavonh@gmail.com">kiaointhavonh@gmail.com</a>.</p>
 
   <footer>
-    <a href="index.html">Home</a>
-    <a href="support.html">Support</a>
+    <div class="footer-logo">
+      <img src="assets/app-icon-dark.png" alt="Kinth Studio">
+      <div class="word">kinth<span>studio</span></div>
+    </div>
+    <div class="footer-row">
+      <a href="index.html">Home</a>
+      <a href="support.html">Support</a>
+    </div>
   </footer>
 </div>
 </body>
