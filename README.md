@@ -5,19 +5,14 @@ under the `kinthstudio` GitHub account. **Live now at https://kinthstudio.github
 
 ## Structure
 
-- `index.html` — studio hub: logo, one-liner, and a card per app (currently just Court Tracker)
-- `assets/` — studio-level assets (K logo icons) + a copy of the Court Tracker icon for the hub card
-- `courttracker/` — Court Tracker's own site, self-contained:
-  - `index.html` — marketing landing page (feature highlights, screenshots, App Store link)
-  - `support.html` — support page with contact email + FAQ
-  - `privacy.html` — privacy policy
-  - `assets/` — Court Tracker's icon + screenshots
+- `index.html` — studio hub: logo, one-liner, and a card per published app
+- `assets/` — studio-level assets (K logo icons) and the icon for each hub card
 
-**Adding a new app later**: create a new top-level folder (e.g. `coolapp2/`) with
-its own `index.html`/`support.html`/`privacy.html`/`assets/`, mirroring
-`courttracker/`, then add a new `.app-card` link to it in the root `index.html`.
-No new GitHub repo or domain needed — everything lives under the same
-`kinthstudio.github.io` site as subpaths.
+**Adding an app**: create a new top-level folder (e.g. `coolapp2/`) with its
+own `index.html`/`support.html`/`privacy.html`/`assets/`, then add a new
+`.app-card` link to it in the root `index.html`. No new GitHub repo or domain
+needed — everything lives under the same `kinthstudio.github.io` site as
+subpaths.
 
 All pages are self-contained static HTML/CSS — no build step, no dependencies.
 
@@ -32,9 +27,9 @@ git add -A && git commit -m "..." && git push
 
 ## Using it for App Store Connect
 
-In App Store Connect → App Information, for Court Tracker:
-- **Marketing URL**: `https://kinthstudio.github.io/courttracker/`
-- **Support URL**: `https://kinthstudio.github.io/courttracker/support.html`
+In App Store Connect → App Information, an app's **Marketing URL** is its
+folder (`https://kinthstudio.github.io/<folder>/`) and its **Support URL** is
+that folder's `support.html`.
 
 (App Store Connect fields have to be edited by you directly in the browser —
 there's no API access for that from here.)
@@ -58,10 +53,6 @@ Full details: https://docs.github.com/pages/configuring-a-custom-domain-for-your
 
 ## Notes
 
-- The App Store link on the landing page points to
-  `https://apps.apple.com/app/id6759014413` — this 404s until the app is
-  approved and released. Fine to leave in now; it'll start working the moment
-  the app goes live.
 - Contact email throughout is `kinthstudio@icloud.com` (your existing
   address) — swap in a dedicated `support@kinthstudio.com` alias later if you
   set one up once you own the domain.
